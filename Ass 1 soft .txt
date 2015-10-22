@@ -1,0 +1,122 @@
+a class is a way of modelling a real world problems , by dividing any problem into distict objects , each one in turn has it's own attributes and functions...so it simplifies the 
+debugging and coding phase drammatically.
+
+2-how does a class accomplish abstraction, encapsulation and data hidding?
+a class accomplish abstraction as anyone could use a specific object of a class without being aware of how it's coded and the level of abstraction could be more complicated for exampe one can use a library of code to create another library of his own and then a third person uses that library.
+encapsulation is achieved by protecting class data and variables from being edited outside of the class for better enforcement and organization of the code.
+data hidding is achieved as a one could use a library without knowing the real implementation of it.
+
+3-what is the relationship between object and class?
+any object is an instance of a class...like a parent and child, but the difference is that the class has no meaning in code unless it's instanciated (an object is created ).
+
+4-in what way, aside from being functions, are class function members different from  class data members?
+data members are supposed to be protected and can't be accessed directly..and here comes the role of functions which can access them indirectly and modify them..so member functions are supposed to be public.
+also a member function often called a method , a way to access and modify data members.
+an object has it's own data and there is only one function for all objects.
+
+5-
+class account {
+    private :
+        string dep_name;
+        string acc_num;
+        float balance;
+    public :
+        account(string DB, string N, float B)
+        {dep_name = DB; acc_num = N; balance = B}
+        void display()
+        {
+            cout<<"name :"<<dep_name;
+            cout<<"account number :"<<acc_num;
+            cout<<"balance :"<<balance;
+        }
+        void deposit(float dp)
+        {
+            if(dp < 0) {
+                cout<<"wrong input";
+            }
+            else
+                balance += dp;
+        }
+        void withdraw(float wd)
+        {
+            if(wd > balance)
+                cout<<"cannot complete operation"
+            else
+                balance -= wd;
+        }
+};
+
+6-class constructor is called whenever a developer tries to create an object of a class 
+while a class distructor is automatically called at the end of any function it's locall to,
+that's including main function.
+
+7-already provided ib pb5.
+
+8-default constructor is the one automatically called when an object is declared without
+getting a value...for example -> account A1;   (a default constructor is called if exists!!)
+
+9-not a clear question.
+
+10- this is a magic pointer to it's object..has a huge impact in reduing code blocks in 
+implementing some member function
+*this is the object itself as (*) is the derefference operator.
+
+programming exercise :
+
+1- illustrated in pb5
+
+2-
+class Person {
+private:
+    static const LIMIT = 25;
+    string lname; // Person’s last name
+    char fname[LIMIT]; // Person’s first name
+public:
+    Person() {lname = ""; fname[0] = ‘\0’; } // #1
+    Person(const string & ln, const char * fn = "Heyyou") // #2
+    {fname = string; lname = fn; }
+    Person(const string & ln, char * fn )
+    { fname = string; lname = fn;}
+    // the following methods display lname and fname
+    void Show() const // firstname lastname format
+    {
+        cout << fname <<" " << lname <<endl;
+    }
+    
+    void FormalShow() const // lastname, firstname format
+    {
+        cout << lname<< " " << fname << endl;    
+    }
+    
+};
+
+3-
+class Move
+{
+private:
+double x;
+double y;
+public:
+Move(double a , double b) // sets x, y to a,b
+{x = a; y = b;}
+
+showmove() const// shows current x, y values
+{
+    cout<< " x is:"<<x<<endl;
+    cout<<" y is :"<<y<<endl;
+}
+
+// this function adds x of m to x of invoking object
+// adds y of m to y of invoking object to get new y,
+Move add(const Move & m) const;
+{
+    x += m.x;
+    y += m.y;
+    return *this;
+}
+
+
+reset(double a = 0, double b = 0) // resets x,y to a,b
+{x =a ; y = b};
+};
+
